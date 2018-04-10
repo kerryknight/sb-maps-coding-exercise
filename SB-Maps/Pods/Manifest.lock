@@ -1,0 +1,27 @@
+PODS:
+  - SnapKit (4.0.0)
+  - XCGLogger (4.0.0):
+    - XCGLogger/Core (= 4.0.0)
+  - XCGLogger/Core (4.0.0)
+
+DEPENDENCIES:
+  - SnapKit (~> 4.0.0)
+  - XCGLogger (from `https://github.com/GetJOMO/XCGLogger.git`, branch `feature/jomo_xcode_colors`)
+
+EXTERNAL SOURCES:
+  XCGLogger:
+    :branch: feature/jomo_xcode_colors
+    :git: https://github.com/GetJOMO/XCGLogger.git
+
+CHECKOUT OPTIONS:
+  XCGLogger:
+    :commit: 5bbff602091a60f9bf8d0eaf673792cecda2d57c
+    :git: https://github.com/GetJOMO/XCGLogger.git
+
+SPEC CHECKSUMS:
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
+
+PODFILE CHECKSUM: 644ee9e1ff1802e0c43bdc09e1eb3e41b9d4d254
+
+COCOAPODS: 1.4.0
