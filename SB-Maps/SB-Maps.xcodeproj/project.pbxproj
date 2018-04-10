@@ -26,6 +26,7 @@
 		7ABDA8DE207D2B890068254E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8DD207D2B890068254E /* MapViewController.swift */; };
 		7ABDA8E0207D2B9B0068254E /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8DF207D2B9B0068254E /* MapViewModel.swift */; };
 		7ABDA8E2207D30950068254E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABDA8E1207D30950068254E /* MapKit.framework */; };
+		7ABDA8E5207D3ECE0068254E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8E4207D3ECE0068254E /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		7ABDA8DD207D2B890068254E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7ABDA8DF207D2B9B0068254E /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		7ABDA8E1207D30950068254E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7ABDA8E4207D3ECE0068254E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		7F0240D61E36336B67C0A98F /* Pods-SB-Maps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SB-Maps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SB-Maps/Pods-SB-Maps.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D0C53CD503EDF215D9E783 /* Pods-SB-MapsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SB-MapsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SB-MapsTests/Pods-SB-MapsTests.release.xcconfig"; sourceTree = "<group>"; };
 		E7411CF192385F8CB72B2B63 /* Pods-SB-MapsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SB-MapsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SB-MapsTests/Pods-SB-MapsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				7ABDA8CD207D1D6C0068254E /* Colors.swift */,
 				7ABDA8D2207D22C30068254E /* Constants.swift */,
+				7ABDA8E4207D3ECE0068254E /* LocationService.swift */,
 				7ABDA8C4207D17F10068254E /* Logging.swift */,
 			);
 			path = Utilities;
@@ -443,6 +446,7 @@
 				7ABDA8C5207D17F10068254E /* Logging.swift in Sources */,
 				7ABDA8E0207D2B9B0068254E /* MapViewModel.swift in Sources */,
 				7ABDA8D3207D22C30068254E /* Constants.swift in Sources */,
+				7ABDA8E5207D3ECE0068254E /* LocationService.swift in Sources */,
 				7ABDA8A3207D15450068254E /* AppDelegate.swift in Sources */,
 				7ABDA8D1207D1D9F0068254E /* UIColor+Additions.swift in Sources */,
 				7ABDA8DC207D28130068254E /* UIImage+Additions.swift in Sources */,
@@ -602,7 +606,10 @@
 				DEVELOPMENT_TEAM = 2FXS3J8N9C;
 				INFOPLIST_FILE = "SB-Maps/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kerryknight.www.SB-Maps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -619,7 +626,10 @@
 				DEVELOPMENT_TEAM = 2FXS3J8N9C;
 				INFOPLIST_FILE = "SB-Maps/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kerryknight.www.SB-Maps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -636,7 +646,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2FXS3J8N9C;
 				INFOPLIST_FILE = "SB-MapsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kerryknight.www.SB-MapsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -654,7 +668,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2FXS3J8N9C;
 				INFOPLIST_FILE = "SB-MapsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kerryknight.www.SB-MapsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

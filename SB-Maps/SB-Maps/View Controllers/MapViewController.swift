@@ -14,7 +14,7 @@ class MapViewController: UIViewController {
     let viewModel: MapViewModel
     lazy var mapView: MKMapView = MKMapView(frame: .zero)
     
-    init(location: Location) {
+    init(location: LocationSelection) {
         self.viewModel = MapViewModel(location: location)
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,11 +26,19 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        title = viewModel.titleText()
+        
+        configureMap()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mapView.showsUserLocation = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationAuthorizationStatus()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -41,9 +49,65 @@ class MapViewController: UIViewController {
     deinit {
         mapView.delegate = nil
         mapView.removeFromSuperview()
+        LocationService.shared.stopUpdatingLocation()
     }
 }
 
 fileprivate extension MapViewController {
+    func configureMap() {
+        view.addSubview(mapView)
+        
+        mapView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(self.view)
+        }
+        
+        mapView.delegate = self
+    }
     
+    func checkLocationAuthorizationStatus() {
+        if LocationService.shared.isAuthorized() {
+            mapView.showsUserLocation = true
+            LocationService.shared.startUpdatingLocation()
+        }
+        else {
+            LocationService.shared.locationManager?.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  viewModel.regionRadius, viewModel.regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+}
+
+// MARK: - LocationServiceDelegate
+extension MapViewController: LocationServiceDelegate {
+    func didFindLocation(currentLocation: CLLocation) {
+        let lat = currentLocation.coordinate.latitude
+        let lon = currentLocation.coordinate.longitude
+        log.debug("lat: \(lat) long: \(lon)")
+        
+        centerMapOnLocation(location: currentLocation)
+    }
+    
+    func didFailFindingLocation(error: Error) {
+        log.error("Did fail: \(error)")
+    }
+}
+
+// MARK: - MKMapViewDelegate
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    }
 }

@@ -7,17 +7,27 @@
 //
 
 import Foundation
-
-enum Location: Int {
-    case newYork
-    case cancun
-}
+import CoreLocation
 
 class MapViewModel: NSObject {
-    let location: Location
-    init(location: Location) {
+    let location: LocationSelection
+    let regionRadius: CLLocationDistance = 1000
+    
+    init(location: LocationSelection) {
         log.debug("location: \(location)")
         self.location = location
         super.init()
+    }
+}
+
+// MARK: - Public Methods
+extension MapViewModel {
+    public func titleText() -> String {
+        switch location {
+        case .cancun:
+            return "To Cancún, Mexico"
+        case .newYork:
+            return "To New York, NY"
+        }
     }
 }

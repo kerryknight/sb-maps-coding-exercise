@@ -36,8 +36,8 @@ fileprivate extension ButtonViewController {
         workButton.setTitle(InterfaceString.ButtonView.Work, for: .normal)
         vacationButton.setTitle(InterfaceString.ButtonView.Vacation, for: .normal)
         
-        workButton.tag = Location.newYork.rawValue
-        vacationButton.tag = Location.cancun.rawValue
+        workButton.tag = LocationSelection.newYork.rawValue
+        vacationButton.tag = LocationSelection.cancun.rawValue
         
         workButton.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
         vacationButton.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
@@ -57,12 +57,12 @@ fileprivate extension ButtonViewController {
     
     @objc
     func buttonTapped(button: Button) {
-        if let location = Location(rawValue: button.tag) {
+        if let location = LocationSelection(rawValue: button.tag) {
             pushMapViewController(location: location)
         }
     }
     
-    func pushMapViewController(location: Location) {
+    func pushMapViewController(location: LocationSelection) {
         let map = MapViewController(location: location)
         navigationController?.pushViewController(map, animated: true)
     }
