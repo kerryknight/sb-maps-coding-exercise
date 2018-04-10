@@ -15,6 +15,7 @@
 		7ABDA8AD207D15460068254E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDA8AB207D15460068254E /* LaunchScreen.storyboard */; };
 		7ABDA8B8207D15470068254E /* SB_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8B7207D15470068254E /* SB_MapsTests.swift */; };
 		7ABDA8C5207D17F10068254E /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8C4207D17F10068254E /* Logging.swift */; };
+		7ABDA8C7207D1CC40068254E /* RavenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8C6207D1CC40068254E /* RavenButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		7ABDA8B7207D15470068254E /* SB_MapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SB_MapsTests.swift; sourceTree = "<group>"; };
 		7ABDA8B9207D15470068254E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ABDA8C4207D17F10068254E /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		7ABDA8C6207D1CC40068254E /* RavenButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RavenButton.swift; sourceTree = "<group>"; };
 		7F0240D61E36336B67C0A98F /* Pods-SB-Maps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SB-Maps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SB-Maps/Pods-SB-Maps.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D0C53CD503EDF215D9E783 /* Pods-SB-MapsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SB-MapsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SB-MapsTests/Pods-SB-MapsTests.release.xcconfig"; sourceTree = "<group>"; };
 		E7411CF192385F8CB72B2B63 /* Pods-SB-MapsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SB-MapsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SB-MapsTests/Pods-SB-MapsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,11 +101,11 @@
 			isa = PBXGroup;
 			children = (
 				7ABDA8A2207D15450068254E /* AppDelegate.swift */,
-				7ABDA8A4207D15450068254E /* ButtonViewController.swift */,
-				7ABDA8C4207D17F10068254E /* Logging.swift */,
-				7ABDA8A9207D15460068254E /* Assets.xcassets */,
-				7ABDA8AB207D15460068254E /* LaunchScreen.storyboard */,
-				7ABDA8AE207D15460068254E /* Info.plist */,
+				7ABDA8CB207D1CE20068254E /* Utilities */,
+				7ABDA8C8207D1CC80068254E /* Views */,
+				7ABDA8CA207D1CD40068254E /* View Models */,
+				7ABDA8C9207D1CCD0068254E /* View Controllers */,
+				7ABDA8CC207D1CFE0068254E /* Supporting Files */,
 			);
 			path = "SB-Maps";
 			sourceTree = "<group>";
@@ -115,6 +117,47 @@
 				7ABDA8B9207D15470068254E /* Info.plist */,
 			);
 			path = "SB-MapsTests";
+			sourceTree = "<group>";
+		};
+		7ABDA8C8207D1CC80068254E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8C6207D1CC40068254E /* RavenButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7ABDA8C9207D1CCD0068254E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8A4207D15450068254E /* ButtonViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7ABDA8CA207D1CD40068254E /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		7ABDA8CB207D1CE20068254E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8C4207D17F10068254E /* Logging.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7ABDA8CC207D1CFE0068254E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8A9207D15460068254E /* Assets.xcassets */,
+				7ABDA8AB207D15460068254E /* LaunchScreen.storyboard */,
+				7ABDA8AE207D15460068254E /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		E2E633E1154296EC9F5B0187 /* Pods */ = {
@@ -338,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABDA8C7207D1CC40068254E /* RavenButton.swift in Sources */,
 				7ABDA8A5207D15450068254E /* ButtonViewController.swift in Sources */,
 				7ABDA8C5207D17F10068254E /* Logging.swift in Sources */,
 				7ABDA8A3207D15450068254E /* AppDelegate.swift in Sources */,
