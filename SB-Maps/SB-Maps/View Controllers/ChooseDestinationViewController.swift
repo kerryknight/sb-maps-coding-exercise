@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 // MARK: - Life Cycle
-class ButtonViewController: UIViewController {
+class ChooseDestinationViewController: UIViewController {
     let workButton = Button()
     let vacationButton = Button()
     
@@ -29,7 +29,7 @@ class ButtonViewController: UIViewController {
 }
 
 // MARK: - Private Methods
-fileprivate extension ButtonViewController {
+fileprivate extension ChooseDestinationViewController {
     func configureButtons() {
         view.addSubview(workButton)
         view.addSubview(vacationButton)

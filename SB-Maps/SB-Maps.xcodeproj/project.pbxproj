@@ -10,7 +10,7 @@
 		41402F427198FD9386A40F53 /* Pods_SB_MapsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6613546AF11C0FB3C972CBF2 /* Pods_SB_MapsTests.framework */; };
 		6BAE78A7A437143B14751AF7 /* Pods_SB_Maps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74D5E562772795B45F56742 /* Pods_SB_Maps.framework */; };
 		7ABDA8A3207D15450068254E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8A2207D15450068254E /* AppDelegate.swift */; };
-		7ABDA8A5207D15450068254E /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8A4207D15450068254E /* ButtonViewController.swift */; };
+		7ABDA8A5207D15450068254E /* ChooseDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8A4207D15450068254E /* ChooseDestinationViewController.swift */; };
 		7ABDA8AA207D15460068254E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDA8A9207D15460068254E /* Assets.xcassets */; };
 		7ABDA8AD207D15460068254E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDA8AB207D15460068254E /* LaunchScreen.storyboard */; };
 		7ABDA8B8207D15470068254E /* SB_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8B7207D15470068254E /* SB_MapsTests.swift */; };
@@ -44,7 +44,7 @@
 		6613546AF11C0FB3C972CBF2 /* Pods_SB_MapsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SB_MapsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABDA89F207D15450068254E /* SB-Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SB-Maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABDA8A2207D15450068254E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7ABDA8A4207D15450068254E /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
+		7ABDA8A4207D15450068254E /* ChooseDestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDestinationViewController.swift; sourceTree = "<group>"; };
 		7ABDA8A9207D15460068254E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ABDA8AC207D15460068254E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7ABDA8AE207D15460068254E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		7ABDA8C9207D1CCD0068254E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7ABDA8A4207D15450068254E /* ButtonViewController.swift */,
+				7ABDA8A4207D15450068254E /* ChooseDestinationViewController.swift */,
 				7ABDA8DD207D2B890068254E /* MapViewController.swift */,
 			);
 			path = "View Controllers";
@@ -442,7 +442,7 @@
 				7ABDA8C7207D1CC40068254E /* Button.swift in Sources */,
 				7ABDA8CE207D1D6C0068254E /* Colors.swift in Sources */,
 				7ABDA8DE207D2B890068254E /* MapViewController.swift in Sources */,
-				7ABDA8A5207D15450068254E /* ButtonViewController.swift in Sources */,
+				7ABDA8A5207D15450068254E /* ChooseDestinationViewController.swift in Sources */,
 				7ABDA8C5207D17F10068254E /* Logging.swift in Sources */,
 				7ABDA8E0207D2B9B0068254E /* MapViewModel.swift in Sources */,
 				7ABDA8D3207D22C30068254E /* Constants.swift in Sources */,
