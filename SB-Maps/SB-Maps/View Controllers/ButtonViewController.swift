@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 
+// MARK: - Life Cycle
 class ButtonViewController: UIViewController {
     let workButton = Button()
     let vacationButton = Button()
@@ -33,8 +34,8 @@ fileprivate extension ButtonViewController {
         view.addSubview(workButton)
         view.addSubview(vacationButton)
         
-        workButton.setTitle(InterfaceString.ButtonView.Work, for: .normal)
-        vacationButton.setTitle(InterfaceString.ButtonView.Vacation, for: .normal)
+        workButton.setTitle(InterfaceString.Selection.Work, for: .normal)
+        vacationButton.setTitle(InterfaceString.Selection.Vacation, for: .normal)
         
         workButton.tag = LocationSelection.newYork.rawValue
         vacationButton.tag = LocationSelection.cancun.rawValue

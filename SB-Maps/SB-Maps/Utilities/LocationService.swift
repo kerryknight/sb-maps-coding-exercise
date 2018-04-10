@@ -14,6 +14,7 @@ public protocol LocationServiceDelegate {
     func didFailFindingLocation(error: Error)
 }
 
+// MARK: - Life Cycle
 public class LocationService: NSObject {
     static let shared = LocationService()
     private(set) var locationManager: CLLocationManager?
@@ -34,22 +35,22 @@ public class LocationService: NSObject {
     }
 }
 
+// MARK: - Public Methods
 public extension LocationService {
     func isAuthorized() -> Bool {
         return CLLocationManager.authorizationStatus() == .authorizedWhenInUse
     }
     
     func startUpdatingLocation() {
-        print("Starting Location Updates")
         self.locationManager?.startUpdatingLocation()
     }
     
     func stopUpdatingLocation() {
-        print("Stop Location Updates")
         self.locationManager?.stopUpdatingLocation()
     }
 }
 
+// MARK: - Private Methods
 fileprivate extension LocationService {
     func updateLocation(_ currentLocation: CLLocation){
         guard let delegate = self.delegate else { return }
@@ -65,7 +66,6 @@ fileprivate extension LocationService {
 // MARK: - CLLocationManagerDelegate
 extension LocationService: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        log.debug("Found locations: \(locations)")
         guard let location = locations.last else { return }
         
         // singleton for get last(current) location
@@ -81,7 +81,6 @@ extension LocationService: CLLocationManagerDelegate {
     }
     
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        log.debug("Authorization status changed: \(status)")
         if self.isAuthorized() {
             self.startUpdatingLocation()
         }

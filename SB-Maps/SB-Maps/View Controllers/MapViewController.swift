@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import MapKit
 
+// MARK: - Life Cycle
 class MapViewController: UIViewController {
     let viewModel: MapViewModel
     lazy var mapView: MKMapView = MKMapView(frame: .zero)
@@ -48,11 +49,11 @@ class MapViewController: UIViewController {
     
     deinit {
         mapView.delegate = nil
-        LocationService.shared.delegate = nil
         LocationService.shared.stopUpdatingLocation()
     }
 }
 
+// MARK: - Private Methods
 fileprivate extension MapViewController {
     func configureMap() {
         view.addSubview(mapView)
@@ -76,17 +77,67 @@ fileprivate extension MapViewController {
         }
     }
     
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  viewModel.regionRadius, viewModel.regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
+    func showRoute(fromLocation location: CLLocation) {
+        let sourceLocation = location.coordinate
+        let destinationLocation = viewModel.getDestinationCoordinates()
+        
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let strongSelf = self else { return }
+            
+            let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+            let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+            
+            let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+            let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+            
+            let sourceAnnotation = MKPointAnnotation()
+            sourceAnnotation.title = InterfaceString.Map.CurrentLocation
+            
+            if let location = sourcePlacemark.location {
+                sourceAnnotation.coordinate = location.coordinate
+            }
+            
+            let destinationAnnotation = MKPointAnnotation()
+            destinationAnnotation.title = strongSelf.viewModel.expandedTitleText()
+            
+            if let location = destinationPlacemark.location {
+                destinationAnnotation.coordinate = location.coordinate
+            }
+            
+            strongSelf.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+            
+            let directionRequest = MKDirectionsRequest()
+            directionRequest.source = sourceMapItem
+            directionRequest.destination = destinationMapItem
+            directionRequest.transportType = .automobile
+            
+            // Calculate the direction
+            let directions = MKDirections(request: directionRequest)
+            
+            directions.calculate { response, error -> Void in
+                guard let response = response else { return }
+                
+                if let error = error {
+                    log.error("Error: \(error)")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    let route = response.routes[0]
+                    strongSelf.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
+                    
+                    let rect = route.polyline.boundingMapRect
+                    strongSelf.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+                }
+            }
+        }
     }
 }
 
 // MARK: - LocationServiceDelegate
 extension MapViewController: LocationServiceDelegate {
     func didFindLocation(currentLocation: CLLocation) {
-        centerMapOnLocation(location: currentLocation)
+        showRoute(fromLocation: currentLocation)
     }
     
     func didFailFindingLocation(error: Error) {
@@ -97,16 +148,11 @@ extension MapViewController: LocationServiceDelegate {
 
 // MARK: - MKMapViewDelegate
 extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-    }
-    
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-    }
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        return nil
-    }
-    
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = .carolinaBlue()
+        renderer.lineWidth = 4.0
+        
+        return renderer
     }
 }

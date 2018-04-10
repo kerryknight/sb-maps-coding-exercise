@@ -9,8 +9,12 @@
 import Foundation
 
 public struct InterfaceString {
-    public struct ButtonView {
+    public struct Selection {
         static let Work: String = NSLocalizedString("Go to Work", comment: "")
         static let Vacation: String = NSLocalizedString("Go on Vacation", comment: "")
+    }
+    
+    public struct Map {
+        static let CurrentLocation: String = NSLocalizedString("Current Location", comment: "")
     }
 }
