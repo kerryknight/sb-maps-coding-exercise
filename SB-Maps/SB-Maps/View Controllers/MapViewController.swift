@@ -32,15 +32,14 @@ class MapViewController: UIViewController {
         configureMap()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        mapView.showsUserLocation = false
         super.viewDidDisappear(animated)
+        mapView.showsUserLocation = false
     }
     
     deinit {
