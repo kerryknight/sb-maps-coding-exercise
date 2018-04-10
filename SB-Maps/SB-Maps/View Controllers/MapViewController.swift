@@ -48,7 +48,7 @@ class MapViewController: UIViewController {
     
     deinit {
         mapView.delegate = nil
-        mapView.removeFromSuperview()
+        LocationService.shared.delegate = nil
         LocationService.shared.stopUpdatingLocation()
     }
 }
@@ -65,6 +65,8 @@ fileprivate extension MapViewController {
     }
     
     func checkLocationAuthorizationStatus() {
+        LocationService.shared.delegate = self
+        
         if LocationService.shared.isAuthorized() {
             mapView.showsUserLocation = true
             LocationService.shared.startUpdatingLocation()
@@ -84,15 +86,12 @@ fileprivate extension MapViewController {
 // MARK: - LocationServiceDelegate
 extension MapViewController: LocationServiceDelegate {
     func didFindLocation(currentLocation: CLLocation) {
-        let lat = currentLocation.coordinate.latitude
-        let lon = currentLocation.coordinate.longitude
-        log.debug("lat: \(lat) long: \(lon)")
-        
         centerMapOnLocation(location: currentLocation)
     }
     
     func didFailFindingLocation(error: Error) {
-        log.error("Did fail: \(error)")
+        let alert = UIAlertController(title: "Error Finding Location", message: "\(error)", preferredStyle: .alert)
+        alert.show(self, sender: nil)
     }
 }
 

@@ -9,11 +9,6 @@
 import Foundation
 import CoreLocation
 
-enum LocationSelection: Int {
-    case newYork
-    case cancun
-}
-
 public protocol LocationServiceDelegate {
     func didFindLocation(currentLocation: CLLocation)
     func didFailFindingLocation(error: Error)
