@@ -67,17 +67,24 @@ fileprivate extension MapViewController {
             mapView.showsUserLocation = true
             LocationService.shared.startUpdatingLocation()
         }
+        else if LocationService.shared.isDenied() {
+            showAlert(withTitle: InterfaceString.Map.LocationDeniedTitle, message: InterfaceString.Map.LocationDeniedMessage)
+        }
         else {
             LocationService.shared.locationManager?.requestWhenInUseAuthorization()
         }
+    }
+    
+    func showAlert(withTitle title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: InterfaceString.OK, style: .default, handler: nil))
+        present(alert, animated: true)
     }
     
     func showRoute(fromLocation location: CLLocation) {
         // adapted from https://www.ioscreator.com/tutorials/draw-route-mapkit-tutorial
         let sourceLocation = location.coordinate
         let destinationLocation = viewModel.getDestinationCoordinates()
-        
-        log.debug("source location: \(sourceLocation)")
         
         let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
         let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
@@ -138,8 +145,8 @@ extension MapViewController: LocationServiceDelegate {
     
     func didFailFindingLocation(error: Error) {
         log.error("Error: \(error)")
-        let alert = UIAlertController(title: "Error Finding Location", message: "\(error)", preferredStyle: .alert)
-        alert.show(self, sender: nil)
+        // let the user know about the failure
+        showAlert(withTitle: InterfaceString.Map.ErrorTitle, message: "\(error.localizedDescription)")
     }
 }
 

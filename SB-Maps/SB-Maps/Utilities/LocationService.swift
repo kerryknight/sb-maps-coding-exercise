@@ -42,6 +42,10 @@ public extension LocationService {
         return CLLocationManager.authorizationStatus() == .authorizedWhenInUse
     }
     
+    func isDenied() -> Bool {
+        return CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .restricted
+    }
+
     func startUpdatingLocation() {
         self.locationManager?.startUpdatingLocation()
     }
