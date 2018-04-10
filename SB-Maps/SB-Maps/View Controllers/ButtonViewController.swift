@@ -17,7 +17,7 @@ class ButtonViewController: UIViewController {
         static let buttonHeight: CGFloat = 44
         static let buttonInset: CGFloat = Constants.Geometry.padding
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,14 +25,22 @@ class ButtonViewController: UIViewController {
         
         configureButtons()
     }
-    
-    // MARK: - Private Methods
+}
+
+// MARK: - Private Methods
+fileprivate extension ButtonViewController {
     func configureButtons() {
         view.addSubview(workButton)
         view.addSubview(vacationButton)
         
         workButton.setTitle(InterfaceString.ButtonView.Work, for: .normal)
         vacationButton.setTitle(InterfaceString.ButtonView.Vacation, for: .normal)
+        
+        workButton.tag = Location.newYork.rawValue
+        vacationButton.tag = Location.cancun.rawValue
+        
+        workButton.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
+        vacationButton.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
         
         workButton.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.snp.centerY).offset(-(Size.buttonInset + Size.buttonHeight)/2)
@@ -45,6 +53,18 @@ class ButtonViewController: UIViewController {
             make.centerX.width.height.equalTo(workButton)
             make.top.equalTo(workButton.snp.bottom).offset(Size.buttonInset)
         }
+    }
+    
+    @objc
+    func buttonTapped(button: Button) {
+        if let location = Location(rawValue: button.tag) {
+            pushMapViewController(location: location)
+        }
+    }
+    
+    func pushMapViewController(location: Location) {
+        let map = MapViewController(location: location)
+        navigationController?.pushViewController(map, animated: true)
     }
 }
 
