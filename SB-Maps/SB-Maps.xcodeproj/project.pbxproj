@@ -10,11 +10,23 @@
 		41402F427198FD9386A40F53 /* Pods_SB_MapsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6613546AF11C0FB3C972CBF2 /* Pods_SB_MapsTests.framework */; };
 		6BAE78A7A437143B14751AF7 /* Pods_SB_Maps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74D5E562772795B45F56742 /* Pods_SB_Maps.framework */; };
 		7ABDA8A3207D15450068254E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8A2207D15450068254E /* AppDelegate.swift */; };
-		7ABDA8A5207D15450068254E /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8A4207D15450068254E /* ButtonViewController.swift */; };
+		7ABDA8A5207D15450068254E /* ChooseDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8A4207D15450068254E /* ChooseDestinationViewController.swift */; };
 		7ABDA8AA207D15460068254E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDA8A9207D15460068254E /* Assets.xcassets */; };
 		7ABDA8AD207D15460068254E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDA8AB207D15460068254E /* LaunchScreen.storyboard */; };
 		7ABDA8B8207D15470068254E /* SB_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8B7207D15470068254E /* SB_MapsTests.swift */; };
 		7ABDA8C5207D17F10068254E /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8C4207D17F10068254E /* Logging.swift */; };
+		7ABDA8C7207D1CC40068254E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8C6207D1CC40068254E /* Button.swift */; };
+		7ABDA8CE207D1D6C0068254E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8CD207D1D6C0068254E /* Colors.swift */; };
+		7ABDA8D1207D1D9F0068254E /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8D0207D1D9F0068254E /* UIColor+Additions.swift */; };
+		7ABDA8D3207D22C30068254E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8D2207D22C30068254E /* Constants.swift */; };
+		7ABDA8D8207D257C0068254E /* Wrightsville Beach.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDA8D5207D257B0068254E /* Wrightsville Beach.gpx */; };
+		7ABDA8D9207D257C0068254E /* Downtown Wilmington.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDA8D6207D257C0068254E /* Downtown Wilmington.gpx */; };
+		7ABDA8DA207D257C0068254E /* InterfaceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8D7207D257C0068254E /* InterfaceString.swift */; };
+		7ABDA8DC207D28130068254E /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8DB207D28130068254E /* UIImage+Additions.swift */; };
+		7ABDA8DE207D2B890068254E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8DD207D2B890068254E /* MapViewController.swift */; };
+		7ABDA8E0207D2B9B0068254E /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8DF207D2B9B0068254E /* MapViewModel.swift */; };
+		7ABDA8E2207D30950068254E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABDA8E1207D30950068254E /* MapKit.framework */; };
+		7ABDA8E5207D3ECE0068254E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA8E4207D3ECE0068254E /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +44,7 @@
 		6613546AF11C0FB3C972CBF2 /* Pods_SB_MapsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SB_MapsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABDA89F207D15450068254E /* SB-Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SB-Maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABDA8A2207D15450068254E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7ABDA8A4207D15450068254E /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
+		7ABDA8A4207D15450068254E /* ChooseDestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDestinationViewController.swift; sourceTree = "<group>"; };
 		7ABDA8A9207D15460068254E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ABDA8AC207D15460068254E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7ABDA8AE207D15460068254E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +52,18 @@
 		7ABDA8B7207D15470068254E /* SB_MapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SB_MapsTests.swift; sourceTree = "<group>"; };
 		7ABDA8B9207D15470068254E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ABDA8C4207D17F10068254E /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		7ABDA8C6207D1CC40068254E /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		7ABDA8CD207D1D6C0068254E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7ABDA8D0207D1D9F0068254E /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		7ABDA8D2207D22C30068254E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7ABDA8D5207D257B0068254E /* Wrightsville Beach.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Wrightsville Beach.gpx"; sourceTree = "<group>"; };
+		7ABDA8D6207D257C0068254E /* Downtown Wilmington.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Downtown Wilmington.gpx"; sourceTree = "<group>"; };
+		7ABDA8D7207D257C0068254E /* InterfaceString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceString.swift; sourceTree = "<group>"; };
+		7ABDA8DB207D28130068254E /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
+		7ABDA8DD207D2B890068254E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		7ABDA8DF207D2B9B0068254E /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		7ABDA8E1207D30950068254E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7ABDA8E4207D3ECE0068254E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		7F0240D61E36336B67C0A98F /* Pods-SB-Maps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SB-Maps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SB-Maps/Pods-SB-Maps.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D0C53CD503EDF215D9E783 /* Pods-SB-MapsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SB-MapsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SB-MapsTests/Pods-SB-MapsTests.release.xcconfig"; sourceTree = "<group>"; };
 		E7411CF192385F8CB72B2B63 /* Pods-SB-MapsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SB-MapsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SB-MapsTests/Pods-SB-MapsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABDA8E2207D30950068254E /* MapKit.framework in Frameworks */,
 				6BAE78A7A437143B14751AF7 /* Pods_SB_Maps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +94,7 @@
 		43DBE490A3261AABD5BDCA2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ABDA8E1207D30950068254E /* MapKit.framework */,
 				F74D5E562772795B45F56742 /* Pods_SB_Maps.framework */,
 				6613546AF11C0FB3C972CBF2 /* Pods_SB_MapsTests.framework */,
 			);
@@ -99,11 +125,12 @@
 			isa = PBXGroup;
 			children = (
 				7ABDA8A2207D15450068254E /* AppDelegate.swift */,
-				7ABDA8A4207D15450068254E /* ButtonViewController.swift */,
-				7ABDA8C4207D17F10068254E /* Logging.swift */,
-				7ABDA8A9207D15460068254E /* Assets.xcassets */,
-				7ABDA8AB207D15460068254E /* LaunchScreen.storyboard */,
-				7ABDA8AE207D15460068254E /* Info.plist */,
+				7ABDA8CF207D1D8F0068254E /* Extensions */,
+				7ABDA8CB207D1CE20068254E /* Utilities */,
+				7ABDA8C8207D1CC80068254E /* Views */,
+				7ABDA8CA207D1CD40068254E /* View Models */,
+				7ABDA8C9207D1CCD0068254E /* View Controllers */,
+				7ABDA8CC207D1CFE0068254E /* Supporting Files */,
 			);
 			path = "SB-Maps";
 			sourceTree = "<group>";
@@ -115,6 +142,72 @@
 				7ABDA8B9207D15470068254E /* Info.plist */,
 			);
 			path = "SB-MapsTests";
+			sourceTree = "<group>";
+		};
+		7ABDA8C8207D1CC80068254E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8C6207D1CC40068254E /* Button.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7ABDA8C9207D1CCD0068254E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8A4207D15450068254E /* ChooseDestinationViewController.swift */,
+				7ABDA8DD207D2B890068254E /* MapViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7ABDA8CA207D1CD40068254E /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8DF207D2B9B0068254E /* MapViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		7ABDA8CB207D1CE20068254E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8CD207D1D6C0068254E /* Colors.swift */,
+				7ABDA8D2207D22C30068254E /* Constants.swift */,
+				7ABDA8E4207D3ECE0068254E /* LocationService.swift */,
+				7ABDA8C4207D17F10068254E /* Logging.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7ABDA8CC207D1CFE0068254E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8D4207D255D0068254E /* Localization */,
+				7ABDA8A9207D15460068254E /* Assets.xcassets */,
+				7ABDA8AB207D15460068254E /* LaunchScreen.storyboard */,
+				7ABDA8AE207D15460068254E /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7ABDA8CF207D1D8F0068254E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8DB207D28130068254E /* UIImage+Additions.swift */,
+				7ABDA8D0207D1D9F0068254E /* UIColor+Additions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7ABDA8D4207D255D0068254E /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDA8D6207D257C0068254E /* Downtown Wilmington.gpx */,
+				7ABDA8D7207D257C0068254E /* InterfaceString.swift */,
+				7ABDA8D5207D257B0068254E /* Wrightsville Beach.gpx */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		E2E633E1154296EC9F5B0187 /* Pods */ = {
@@ -184,6 +277,11 @@
 				TargetAttributes = {
 					7ABDA89E207D15450068254E = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7ABDA8B2207D15460068254E = {
 						CreatedOnToolsVersion = 9.3;
@@ -215,6 +313,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABDA8D9207D257C0068254E /* Downtown Wilmington.gpx in Resources */,
+				7ABDA8D8207D257C0068254E /* Wrightsville Beach.gpx in Resources */,
 				7ABDA8AD207D15460068254E /* LaunchScreen.storyboard in Resources */,
 				7ABDA8AA207D15460068254E /* Assets.xcassets in Resources */,
 			);
@@ -338,9 +438,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ABDA8A5207D15450068254E /* ButtonViewController.swift in Sources */,
+				7ABDA8DA207D257C0068254E /* InterfaceString.swift in Sources */,
+				7ABDA8C7207D1CC40068254E /* Button.swift in Sources */,
+				7ABDA8CE207D1D6C0068254E /* Colors.swift in Sources */,
+				7ABDA8DE207D2B890068254E /* MapViewController.swift in Sources */,
+				7ABDA8A5207D15450068254E /* ChooseDestinationViewController.swift in Sources */,
 				7ABDA8C5207D17F10068254E /* Logging.swift in Sources */,
+				7ABDA8E0207D2B9B0068254E /* MapViewModel.swift in Sources */,
+				7ABDA8D3207D22C30068254E /* Constants.swift in Sources */,
+				7ABDA8E5207D3ECE0068254E /* LocationService.swift in Sources */,
 				7ABDA8A3207D15450068254E /* AppDelegate.swift in Sources */,
+				7ABDA8D1207D1D9F0068254E /* UIColor+Additions.swift in Sources */,
+				7ABDA8DC207D28130068254E /* UIImage+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2FXS3J8N9C;
-				INFOPLIST_FILE = "SB-Maps/Info.plist";
+				INFOPLIST_FILE = "SB-Maps/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,7 +624,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2FXS3J8N9C;
-				INFOPLIST_FILE = "SB-Maps/Info.plist";
+				INFOPLIST_FILE = "SB-Maps/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
