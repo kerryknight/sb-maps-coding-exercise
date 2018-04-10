@@ -78,6 +78,8 @@ fileprivate extension MapViewController {
     }
     
     func showRoute(fromLocation location: CLLocation) {
+        // adapted from https://www.ioscreator.com/tutorials/draw-route-mapkit-tutorial
+        
         let sourceLocation = location.coordinate
         let destinationLocation = viewModel.getDestinationCoordinates()
         

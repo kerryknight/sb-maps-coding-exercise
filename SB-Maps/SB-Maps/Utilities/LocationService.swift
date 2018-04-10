@@ -5,6 +5,7 @@
 //  Created by Kerry Knight on 4/10/18.
 //  Copyright © 2018 Kerry Knight. All rights reserved.
 //
+//  Adapted from: https://github.com/igroomgrim/CLLocationManager-Singleton-in-Swift
 
 import Foundation
 import CoreLocation
