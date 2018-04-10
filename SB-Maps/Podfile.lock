@@ -1,11 +1,13 @@
 PODS:
   - SnapKit (4.0.0)
+  - SwiftLocation (2.0.7)
   - XCGLogger (4.0.0):
     - XCGLogger/Core (= 4.0.0)
   - XCGLogger/Core (4.0.0)
 
 DEPENDENCIES:
   - SnapKit (~> 4.0.0)
+  - SwiftLocation
   - XCGLogger (from `https://github.com/GetJOMO/XCGLogger.git`, branch `feature/jomo_xcode_colors`)
 
 EXTERNAL SOURCES:
@@ -20,8 +22,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftLocation: 1fe2e15a5812e961496e82eeaca71d03e829e47a
   XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
 
-PODFILE CHECKSUM: 644ee9e1ff1802e0c43bdc09e1eb3e41b9d4d254
+PODFILE CHECKSUM: b7b0580685b8733b328a6f27de69f246873255fd
 
 COCOAPODS: 1.4.0

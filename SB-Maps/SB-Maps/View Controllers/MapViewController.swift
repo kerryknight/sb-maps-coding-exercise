@@ -37,4 +37,13 @@ class MapViewController: UIViewController {
         mapView.showsUserLocation = false
         super.viewDidDisappear(animated)
     }
+    
+    deinit {
+        mapView.delegate = nil
+        mapView.removeFromSuperview()
+    }
+}
+
+fileprivate extension MapViewController {
+    
 }
