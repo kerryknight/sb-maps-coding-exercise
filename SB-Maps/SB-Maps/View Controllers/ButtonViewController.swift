@@ -10,8 +10,8 @@ import UIKit
 import SnapKit
 
 class ButtonViewController: UIViewController {
-    let workButton = SpinnerButton()
-    let vacationButton = SpinnerButton()
+    let workButton = Button()
+    let vacationButton = Button()
     
     struct Size {
         static let buttonHeight: CGFloat = 44

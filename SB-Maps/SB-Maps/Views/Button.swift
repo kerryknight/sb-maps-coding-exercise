@@ -36,6 +36,12 @@ public class Button: UIButton {
         }
     }
     
+    var baseColor: UIColor = UIColor.carolinaBlue() {
+        didSet {
+            backgroundColor = baseColor
+        }
+    }
+    
     required override public init(frame: CGRect) {
         super.init(frame: frame)
         sharedSetup()
@@ -67,7 +73,16 @@ public class Button: UIButton {
     }
     
     func updateStyle() {
-        backgroundColor = isEnabled ? .carolinaBlue() : .lightGray()
+        if isHighlighted || isSelected {
+            backgroundColor = .darkCarolinaBlue()
+        }
+        else if !isEnabled {
+            backgroundColor = .lightGray()
+        }
+        else {
+            backgroundColor = baseColor
+        }
+        
         updateOutline()
     }
     
@@ -100,41 +115,5 @@ public class Button: UIButton {
         else {
             layer.cornerRadius = 8
         }
-    }
-}
-
-public class SpinnerButton: Button {
-    public let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    var baseColor: UIColor = UIColor.carolinaBlue() {
-        didSet {
-            backgroundColor = baseColor
-        }
-    }
-    
-    override func updateStyle() {
-        super.updateStyle()
-        
-        if isHighlighted || isSelected {
-            backgroundColor = baseColor.adjust(by: -10)
-        }
-        else if !isEnabled {
-            backgroundColor = .lightGray()
-        }
-        else {
-            backgroundColor = baseColor
-        }
-    }
-    
-    override func sharedSetup() {
-        super.sharedSetup()
-        
-        setTitleColor(.white, for: .normal)
-        addSubview(spinner)
-        
-        spinner.snp.makeConstraints { make in
-            make.center.equalTo(self)
-        }
-        
-        updateStyle()
     }
 }
