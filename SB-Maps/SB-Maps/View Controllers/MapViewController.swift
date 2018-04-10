@@ -34,11 +34,7 @@ class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mapView.showsUserLocation = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
         checkLocationAuthorizationStatus()
     }
     
@@ -79,59 +75,58 @@ fileprivate extension MapViewController {
     
     func showRoute(fromLocation location: CLLocation) {
         // adapted from https://www.ioscreator.com/tutorials/draw-route-mapkit-tutorial
-        
         let sourceLocation = location.coordinate
         let destinationLocation = viewModel.getDestinationCoordinates()
         
-        DispatchQueue.global(qos: .background).async { [weak self] in
+        log.debug("source location: \(sourceLocation)")
+        
+        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+        
+        let sourceAnnotation = MKPointAnnotation()
+        if let location = sourcePlacemark.location {
+            sourceAnnotation.coordinate = location.coordinate
+        }
+        
+        sourceAnnotation.title = InterfaceString.Map.CurrentLocation
+        
+        let destinationAnnotation = MKPointAnnotation()
+        if let location = destinationPlacemark.location {
+            destinationAnnotation.coordinate = location.coordinate
+        }
+        
+        destinationAnnotation.title = viewModel.expandedTitleText()
+        
+        // add annotations to mapview
+        mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+        
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .automobile
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        directions.calculate { [weak self] response, error -> Void in
+            guard let response = response else { return }
             guard let strongSelf = self else { return }
             
-            let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
-            let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-            
-            let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-            let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-            
-            let sourceAnnotation = MKPointAnnotation()
-            sourceAnnotation.title = InterfaceString.Map.CurrentLocation
-            
-            if let location = sourcePlacemark.location {
-                sourceAnnotation.coordinate = location.coordinate
+            if let error = error {
+                log.error("Error: \(error)")
+                return
             }
             
-            let destinationAnnotation = MKPointAnnotation()
-            destinationAnnotation.title = strongSelf.viewModel.expandedTitleText()
+            let route = response.routes[0]
+            strongSelf.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
             
-            if let location = destinationPlacemark.location {
-                destinationAnnotation.coordinate = location.coordinate
-            }
+            let rect = route.polyline.boundingMapRect
+            strongSelf.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
             
-            strongSelf.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
-            
-            let directionRequest = MKDirectionsRequest()
-            directionRequest.source = sourceMapItem
-            directionRequest.destination = destinationMapItem
-            directionRequest.transportType = .automobile
-            
-            // Calculate the direction
-            let directions = MKDirections(request: directionRequest)
-            
-            directions.calculate { response, error -> Void in
-                guard let response = response else { return }
-                
-                if let error = error {
-                    log.error("Error: \(error)")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    let route = response.routes[0]
-                    strongSelf.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
-                    
-                    let rect = route.polyline.boundingMapRect
-                    strongSelf.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-                }
-            }
+            LocationService.shared.stopUpdatingLocation()
         }
     }
 }
@@ -143,6 +138,7 @@ extension MapViewController: LocationServiceDelegate {
     }
     
     func didFailFindingLocation(error: Error) {
+        log.error("Error: \(error)")
         let alert = UIAlertController(title: "Error Finding Location", message: "\(error)", preferredStyle: .alert)
         alert.show(self, sender: nil)
     }

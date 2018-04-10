@@ -31,7 +31,7 @@ public class LocationService: NSObject {
             return
         }
         
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.delegate = self
     }
 }
